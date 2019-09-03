@@ -5,7 +5,7 @@ package br.edu.iffar.reserv.modelo;
  * do sistema. Não existirá usuário sem 
  * especialização, sendo sempre um cliente ou 
  * usuário.
-* </p>
+* </p> 
 * @author Professor
 * @since Aug 19, 2019 8:22:31 PM
 */
