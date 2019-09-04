@@ -8,7 +8,7 @@ package br.edu.iffar.reserv.modelo;
  * @author Professor
  * @since Aug 19, 2019 8:25:10 PM
  */
-public class Cliente extends Usuario {
+public class Cliente extends Usuario  {
 
 	private String endereco;
 

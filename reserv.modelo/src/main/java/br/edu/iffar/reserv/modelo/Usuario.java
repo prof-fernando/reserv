@@ -1,4 +1,7 @@
 package br.edu.iffar.reserv.modelo;
+
+import br.edu.iffar.reserv.modelo.core.IEntidade;
+
 /**
  * <p>
  * Entidade genérica que representa um usuário 
@@ -9,7 +12,7 @@ package br.edu.iffar.reserv.modelo;
 * @author Professor
 * @since Aug 19, 2019 8:22:31 PM
 */
-public abstract class Usuario {
+public abstract class Usuario implements IEntidade {
 
 	private long idUsuario;
 	private String nome;
@@ -48,4 +51,10 @@ public abstract class Usuario {
 		this.senha = senha;
 	}
 	
+	public long getID() {
+		return getIdUsuario();
+	}
+	public void setID(long chave) {
+		setIdUsuario(chave);
+	}
 }

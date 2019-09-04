@@ -2,6 +2,8 @@ package br.edu.iffar.reserv.modelo;
 
 import java.util.Date;
 
+import br.edu.iffar.reserv.modelo.core.IEntidade;
+
 /**
  * <p>
  * Entidade que representa uma reserva feita pelo cliente
@@ -10,7 +12,7 @@ import java.util.Date;
  * @author Professor
  * @since Aug 19, 2019 8:29:07 PM
  */
-public class Reserva {
+public class Reserva implements IEntidade {
 
 	private long idReserva;
 	// data da realizacao da reserva
@@ -100,6 +102,14 @@ public class Reserva {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	public long getID() {
+		return getIdReserva();
+	}
+
+	public void setID(long chave) {
+		setIdReserva(chave);
 	}
 
 }

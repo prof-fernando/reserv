@@ -1,5 +1,7 @@
 package br.edu.iffar.reserv.modelo;
 
+import br.edu.iffar.reserv.modelo.core.IEntidade;
+
 /**
  * <p>
  * Entidade que representa um quarto que pode ser reservado
@@ -8,7 +10,7 @@ package br.edu.iffar.reserv.modelo;
  * @author Professor
  * @since Aug 19, 2019 8:14:03 PM
  */
-public class Quarto {
+public class Quarto implements IEntidade {
 
 	private long idQuarto;
 	// quantidade de pessoas que o quarto comporta
@@ -48,6 +50,14 @@ public class Quarto {
 
 	public void setTamanho(double tamanho) {
 		this.tamanho = tamanho;
+	}
+
+	public long getID() {
+		return getIdQuarto();
+	}
+
+	public void setID(long chave) {
+		setIdQuarto(chave);		
 	}
 
 }
