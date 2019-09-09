@@ -2,6 +2,16 @@ package br.edu.iffar.reserv.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import br.edu.iffar.reserv.modelo.core.IEntidade;
 
 /**
@@ -12,24 +22,40 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
  * @author Professor
  * @since Aug 19, 2019 8:29:07 PM
  */
+@Entity
 public class Reserva implements IEntidade {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idReserva;
 	// data da realizacao da reserva
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataReserva;
 	// data prevista para entrada no quarto
+	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date dataEntrada;
 	// data prevista para saida do quarto
+	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date dataSaida;
 	// quantidade de pessoas que se hospedarão
+	@Column(nullable = false)
 	private int quantidadeHospede;
 	// define o quarto
+	@ManyToOne
+	@JoinColumn(name = "idQuarto", nullable = false)
 	private Quarto quarto;
 	// define o cliente que esta reservando
+	@ManyToOne
+	@JoinColumn(name = "idCliente", nullable = false)
 	private Cliente cliente;
 	// funcionario que verifica a reserva
+	@ManyToOne
+	@JoinColumn(name = "idFuncionario")
 	private Funcionario funcionario;
 	// valor da reserva
+	@Column(nullable = false)
 	private double valor;
 
 	public long getIdReserva() {

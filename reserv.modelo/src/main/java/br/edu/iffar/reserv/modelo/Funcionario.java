@@ -1,4 +1,8 @@
 package br.edu.iffar.reserv.modelo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 /**
  * <p>
  * Entidade que representa um funcionario
@@ -6,9 +10,11 @@ package br.edu.iffar.reserv.modelo;
 * @author Professor
 * @since Aug 19, 2019 8:26:45 PM
 */
+@Entity
 public class Funcionario extends Usuario {
-
+	@Column(length=30, nullable=false)
 	private String setor;
+	@Column(length=30)
 	private String funcao;
 	
 	

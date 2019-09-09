@@ -1,5 +1,8 @@
 package br.edu.iffar.reserv.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 /**
  * <p>
  * Entidade que representa um cliente que realiza as reservas
@@ -8,8 +11,9 @@ package br.edu.iffar.reserv.modelo;
  * @author Professor
  * @since Aug 19, 2019 8:25:10 PM
  */
+@Entity
 public class Cliente extends Usuario  {
-
+	@Column(length=80)
 	private String endereco;
 
 	public String getEndereco() {

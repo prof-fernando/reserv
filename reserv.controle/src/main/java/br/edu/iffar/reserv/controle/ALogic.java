@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.edu.iffar.reserv.modelo.Cliente;
 import br.edu.iffar.reserv.modelo.core.IEntidade;
+import br.edu.iffar.reserv.modelo.core.dao.IDAO;
 
 /**
  * <p>
@@ -14,6 +15,8 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 * @since Sep 3, 2019 9:12:29 PM
 */
 public abstract class ALogic {
+	IDAO dao; 
+	
 	/**
 	 * <p>
 	 * Grava uma nova entidade ou atualiza caso já exista
@@ -23,7 +26,7 @@ public abstract class ALogic {
 	 *            entidade a ser gravado ou atualizado
 	 */
 	public void gravar(IEntidade entidade) {
-		// implementacao futura de persistencia
+		this.dao.gravar(entidade);
 	}
 
 	/**
@@ -35,7 +38,7 @@ public abstract class ALogic {
 	 *            entidade a ser removido
 	 */
 	public void excluir(IEntidade entidade) {
-		// implementacao futura de persistencia
+		this.dao.excluir(entidade);
 	}
 
 	/**
@@ -44,7 +47,7 @@ public abstract class ALogic {
 	 * </p>
 	 */
 	public IEntidade buscaPorID(long id) {
-		return null;
+		return this.dao.buscaPorChave(id);
 	}
 
 	/**
@@ -55,7 +58,7 @@ public abstract class ALogic {
 	 * </p>
 	 */
 	public List<IEntidade> buscaTodos(String campoOrdem) {
-		return null;
+		return this.dao.getList(campoOrdem);
 	}
 
 }

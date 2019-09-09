@@ -1,5 +1,11 @@
 package br.edu.iffar.reserv.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import br.edu.iffar.reserv.modelo.core.IEntidade;
 
 /**
@@ -12,12 +18,18 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 * @author Professor
 * @since Aug 19, 2019 8:22:31 PM
 */
+@Entity
 public abstract class Usuario implements IEntidade {
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idUsuario;
+	@Column(length=50, nullable=false)
 	private String nome;
+	@Column(length=15)
 	private String telefone;
+	@Column(length=100, nullable=false)
 	private String email;
+	@Column(length=150, nullable=false)
 	private String senha;
 	
 	public long getIdUsuario() {

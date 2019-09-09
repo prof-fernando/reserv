@@ -1,5 +1,11 @@
 package br.edu.iffar.reserv.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import br.edu.iffar.reserv.modelo.core.IEntidade;
 
 /**
@@ -11,10 +17,14 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
  * @author Professor
  * @since 19/08/2019 20:04
  */
+@Entity
 public class Item implements IEntidade {
 	// chave pri maria
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idItem;
 	// descreve o item do quarto
+	@Column(length=50, nullable=false)
 	private String descricao;
 
 	public long getIdItem() {
