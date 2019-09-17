@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.edu.iffar.reserv.modelo.Cliente;
 import br.edu.iffar.reserv.modelo.core.IEntidade;
+import br.edu.iffar.reserv.modelo.core.dao.FabricaDAO;
 import br.edu.iffar.reserv.modelo.core.dao.IDAO;
 
 /**
@@ -16,6 +17,10 @@ import br.edu.iffar.reserv.modelo.core.dao.IDAO;
 */
 public abstract class ALogic {
 	IDAO dao; 
+	
+	public ALogic() {
+		//this.dao = FabricaDAO.getModelo().
+	}
 	
 	/**
 	 * <p>
