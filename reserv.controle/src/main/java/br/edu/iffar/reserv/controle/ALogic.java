@@ -17,9 +17,15 @@ import br.edu.iffar.reserv.modelo.core.dao.IDAO;
 */
 public abstract class ALogic {
 	IDAO dao; 
-	
-	public ALogic() {
-		//this.dao = FabricaDAO.getModelo().
+	/**
+	 * <p>
+	 * Cria uma nova instancia de lógica a partir de uma
+	 * entidade específica.
+	 * </p>
+	 */
+	public ALogic(Class<? extends IEntidade> classeEntidade) {
+	this.dao =
+	FabricaDAO.getModelo().criaNovoDAO(classeEntidade);
 	}
 	
 	/**

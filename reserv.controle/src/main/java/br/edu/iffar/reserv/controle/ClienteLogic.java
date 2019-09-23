@@ -1,9 +1,6 @@
 package br.edu.iffar.reserv.controle;
 
-import java.util.List;
-
 import br.edu.iffar.reserv.modelo.Cliente;
-import br.edu.iffar.reserv.modelo.core.dao.IClienteDAO;
 
 /**
  * <p>
@@ -16,5 +13,7 @@ import br.edu.iffar.reserv.modelo.core.dao.IClienteDAO;
 public class ClienteLogic extends ALogic {
 
 	
-	
+	public ClienteLogic() {
+		super( Cliente.class );
+	}
 }

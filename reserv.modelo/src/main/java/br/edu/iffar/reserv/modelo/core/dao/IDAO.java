@@ -36,10 +36,19 @@ public interface IDAO {
 
 	/**
 	 * <p>
-	 * Busca todos os registros de dada tabela, 
-	 * possibilitando a ordenacao por uma
+	 * Busca todos os registros de dada tabela, possibilitando a ordenacao por uma
 	 * coluna especifica
 	 * </p>
 	 */
 	public List<IEntidade> getList(String ordem) throws DAOException;
+
+	/**
+	 * <p>
+	 * Cria uma classe concreta que implementa os compostamentos esopecificos e
+	 * genéricos do padrão DAO, ou seja, se informarmos uma classe do tipo Quarto,
+	 * este método deve criar uma classe QuartoDAO.
+	 * </p>
+	 */
+	public <Futuro extends IDAO> Futuro criaNovoDAO(Class<? extends IEntidade> classeEntidade) throws DAOException;
+
 }

@@ -23,6 +23,17 @@ public class HibernateDAO implements IDAO {
 	// referencia para a classe da entidade
 	private Class<? extends IEntidade> classeEntidade;
 	/**
+	 * <p>
+	 * Construtor padrão para definição de modelo de persistencia
+	 * </p>
+	 */
+	public HibernateDAO() {
+		// chama o construtor que recebe como parametro
+		// uma classe de entidade
+		this(null);
+	}
+	
+	/**
 	 * <p> Somente cria-se instancias de dao para entidades
 	 * do sistema. Deve-se passar sempre como parametro
 	 * a classe (.class) da entidade
@@ -57,6 +68,20 @@ public class HibernateDAO implements IDAO {
 		this.sessao.createQuery(c).getResultList();
 		
 		return itens;
+	}
+
+	public <Futuro extends IDAO> Futuro criaNovoDAO(Class<? extends IEntidade> classeEntidade) throws DAOException {
+		// monta o pacote da classe a ser instanciada
+		StringBuffer pacote = new StringBuffer();
+		pacote.append("br.edu.iffar.reserv.dao.hibernate.");
+		pacote.append( classeEntidade.getSimpleName() );
+		pacote.append("DAO");
+		try {
+			Class classeDAO = Class.forName(pacote.toString());
+			return (Futuro) classeDAO.newInstance();
+		}catch( Exception ex ) {
+			throw new DAOException(ex.getMessage());
+		}
 	}
 
 }

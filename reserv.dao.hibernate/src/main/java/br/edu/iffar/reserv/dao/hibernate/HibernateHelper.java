@@ -8,8 +8,7 @@ import br.edu.iffar.reserv.modelo.Item;
 
 /**
  * <p>
- * Classe utilitária para criar novas sessões 
- * de conexão com banco de dados
+ * Classe utilitária para criar novas sessões de conexão com banco de dados
  * </p>
  * 
  * @author Professor
@@ -18,34 +17,34 @@ import br.edu.iffar.reserv.modelo.Item;
 public class HibernateHelper {
 
 	private static SessionFactory fabrica;
+
 	/**
 	 * <p>
-	 * Abre uma nova sessão de conexão de conexao com banco
-	 * de dados
+	 * Abre uma nova sessão de conexão de conexao com banco de dados
 	 * </p>
 	 */
 	public static Session getSessao() {
-		if( fabrica == null  ) {
+		if (fabrica == null) {
 			// inicializar a fabrica
 			configurarFabrica();
 		}
 		return fabrica.openSession();
 	}
+
 	/**
 	 * <p>
-	 * CRia uma fábrica de sessões, na prática neste método
-	 * se realiza a conexão efetiva com banco de dados, com base
-	 * no arquivo de configuracao hibernate.properties
+	 * CRia uma fábrica de sessões, na prática neste método se realiza a conexão
+	 * efetiva com banco de dados, com base no arquivo de configuracao
+	 * hibernate.properties
 	 * </p>
 	 */
 	private static void configurarFabrica() {
 		Configuration cfg = new Configuration();
 		// indicar as entidades
 		cfg.addAnnotatedClass(Item.class);
-		
+		cfg.configure();
 		// abre a conexao
 		fabrica = cfg.buildSessionFactory();
 	}
-	
-	
+
 }
