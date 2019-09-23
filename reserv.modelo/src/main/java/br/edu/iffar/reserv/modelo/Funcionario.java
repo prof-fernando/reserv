@@ -2,6 +2,7 @@ package br.edu.iffar.reserv.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import javax.persistence.Entity;
 * @since Aug 19, 2019 8:26:45 PM
 */
 @Entity
+@PrimaryKeyJoinColumn(name="idUsuario")
 public class Funcionario extends Usuario {
 	@Column(length=30, nullable=false)
 	private String setor;

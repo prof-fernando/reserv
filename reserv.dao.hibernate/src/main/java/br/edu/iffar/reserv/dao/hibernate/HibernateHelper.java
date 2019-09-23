@@ -4,7 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import br.edu.iffar.reserv.modelo.Cliente;
+import br.edu.iffar.reserv.modelo.Funcionario;
 import br.edu.iffar.reserv.modelo.Item;
+import br.edu.iffar.reserv.modelo.Quarto;
+import br.edu.iffar.reserv.modelo.Reserva;
+import br.edu.iffar.reserv.modelo.Usuario;
 
 /**
  * <p>
@@ -41,7 +46,14 @@ public class HibernateHelper {
 	private static void configurarFabrica() {
 		Configuration cfg = new Configuration();
 		// indicar as entidades
+		
 		cfg.addAnnotatedClass(Item.class);
+		cfg.addAnnotatedClass(Usuario.class);
+		cfg.addAnnotatedClass(Cliente.class);
+		cfg.addAnnotatedClass(Funcionario.class);
+		cfg.addAnnotatedClass(Quarto.class);
+		cfg.addAnnotatedClass(Reserva.class);
+		
 		cfg.configure();
 		// abre a conexao
 		fabrica = cfg.buildSessionFactory();

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import br.edu.iffar.reserv.modelo.core.IEntidade;
 
@@ -19,6 +21,7 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 * @since Aug 19, 2019 8:22:31 PM
 */
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Usuario implements IEntidade {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

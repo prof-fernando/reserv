@@ -9,25 +9,25 @@ import br.edu.iffar.reserv.modelo.core.dao.IDAO;
 
 /**
  * <p>
- * Classe abastrata que concentra todas as acoes que são
- *  comuns as entidades
-* </p>
-* @author Professor
-* @since Sep 3, 2019 9:12:29 PM
-*/
+ * Classe abastrata que concentra todas as acoes que são comuns as entidades
+ * </p>
+ * 
+ * @author Professor
+ * @since Sep 3, 2019 9:12:29 PM
+ */
 public abstract class ALogic {
-	IDAO dao; 
+	IDAO dao;
+
 	/**
 	 * <p>
-	 * Cria uma nova instancia de lógica a partir de uma
-	 * entidade específica.
+	 * Cria uma nova instancia de lógica a partir de uma entidade específica.
 	 * </p>
 	 */
 	public ALogic(Class<? extends IEntidade> classeEntidade) {
-	this.dao =
-	FabricaDAO.getModelo().criaNovoDAO(classeEntidade);
+		this.dao =
+		FabricaDAO.getModelo().criaNovoDAO(classeEntidade);
 	}
-	
+
 	/**
 	 * <p>
 	 * Grava uma nova entidade ou atualiza caso já exista
@@ -63,9 +63,8 @@ public abstract class ALogic {
 
 	/**
 	 * <p>
-	 * Traz todos os registros de uma determinada entidade,
-	 *  possibilitando a ordenação (ascendente) por um campo 
-	 *  específico
+	 * Traz todos os registros de uma determinada entidade, possibilitando a
+	 * ordenação (ascendente) por um campo específico
 	 * </p>
 	 */
 	public List<IEntidade> buscaTodos(String campoOrdem) {
