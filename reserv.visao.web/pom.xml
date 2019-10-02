@@ -5,13 +5,14 @@
 	<groupId>br.edu.iffar</groupId>
 	<artifactId>reserv.visao.web</artifactId>
 	<version>1.0</version>
+	<packaging>war</packaging>
 	<description>implementacao parte view com webcontainer</description>
 
 	<dependencies>
 		<dependency>
-		   <groupId>br.edu.iffar</groupId>
-		   <artifactId>reserv.modelo</artifactId>
-		   <version>1.0</version>
+			<groupId>br.edu.iffar</groupId>
+			<artifactId>reserv.modelo</artifactId>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>br.edu.iffar</groupId>
@@ -23,6 +24,12 @@
 			<artifactId>reserv.dao.hibernate</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>br.com.caelum</groupId>
+			<artifactId>vraptor</artifactId>
+			<version>4.2.0-RC5</version>
+		</dependency>
 	</dependencies>
 
+	
 </project>
