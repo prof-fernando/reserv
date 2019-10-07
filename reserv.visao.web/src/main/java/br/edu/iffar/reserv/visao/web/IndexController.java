@@ -12,7 +12,6 @@ import br.com.caelum.vraptor.Controller;
  */
 @Controller
 public class IndexController {
-
 	public void hello() {
 		String mensagem = "hello world!";
 		System.out.println(mensagem);
