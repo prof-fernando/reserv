@@ -22,16 +22,23 @@ public class ItemController {
 	//@Inject
 	private ItemLogic logic;
 
+	
+	public ItemController() {
+		this.logic = new ItemLogic();
+	}
+	
 	public void editar(long id) {
 		Item item = (Item) logic.buscaPorID(id);
-		result.include("item", item);
+		result.include("entidade", item);
 	}
 
 	public void listar() {
-		//result.include("itemList", logic.buscaTodos(null));
+		result.include("itemList", logic.buscaTodos(null));
 	}
 
 	public void gravar(Item item) {
 		logic.gravar(item);
+		result.include("gravado", true);
+		result.forwardTo(this).editar(item.getID());
 	}
 }
