@@ -3,6 +3,7 @@ package br.edu.iffar.reserv.dao.hibernate;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
@@ -63,6 +64,9 @@ public class HibernateDAO implements IDAO {
 		CriteriaQuery<? extends IEntidade> c =
 		  this.sessao.getCriteriaBuilder()
 		 .createQuery( this.classeEntidade );
+		
+		Root r = c.from(this.classeEntidade);
+		c.select(   r );
 		
 		List itens =
 		this.sessao.createQuery(c).getResultList();
